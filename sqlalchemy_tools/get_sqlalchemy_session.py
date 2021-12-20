@@ -22,7 +22,7 @@ def get_sqlalchemy_url():
 
 def get_sqlalchemy_session():
     sqlalchemy_url = get_sqlalchemy_url()
-    print(sqlalchemy_url)
+    print("############################", sqlalchemy_url)
     engine = create_engine(sqlalchemy_url)
     engine.connect()
     Session = sessionmaker(engine)

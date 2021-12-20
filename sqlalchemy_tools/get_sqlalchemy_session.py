@@ -3,14 +3,14 @@ from dotenv import DotEnv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-dotenv = DotEnv()
+dotenv = load_dotenv()
 
 def get_sqlalchemy_url():
-    DOMAIN_DB_TYPE = dotenv.get('DOMAIN_DB_TYPE')
-    DOMAIN_DB_USERNAME = dotenv.get('DOMAIN_DB_USERNAME')
-    DOMAIN_DB_PASS = dotenv.get('DOMAIN_DB_PASSWORD')
-    DOMAIN_DB_NAME = dotenv.get('DOMAIN_DB_NAME')
-    DOMAIN_DB_PORT = dotenv.get('DOMAIN_DB_PORT')
+    DOMAIN_DB_TYPE = os.environ.get('DOMAIN_DB_TYPE')
+    DOMAIN_DB_USERNAME = os.environ.get('DOMAIN_DB_USERNAME')
+    DOMAIN_DB_PASS = os.environ.get('DOMAIN_DB_PASSWORD')
+    DOMAIN_DB_NAME = os.environ.get('DOMAIN_DB_NAME')
+    DOMAIN_DB_PORT = os.environ.get('DOMAIN_DB_PORT')
     sqlalchemy_url = DOMAIN_DB_TYPE+"://"+DOMAIN_DB_USERNAME+":"+DOMAIN_DB_PASS+"@localhost:"+DOMAIN_DB_PORT+"/"+DOMAIN_DB_NAME
     return sqlalchemy_url
 

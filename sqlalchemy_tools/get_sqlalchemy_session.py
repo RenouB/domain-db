@@ -2,8 +2,12 @@ import os
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+import pathlib
 
-dotenv = load_dotenv()
+env_path = os.path.join(pathlib.Path(__file__).parent.resolve(), ".env")
+
+if not os.environ.get("DOMAIN_DB_PASSWORD"):
+    dotenv = load_dotenv(env_path)
 
 def get_sqlalchemy_url():
     DOMAIN_DB_TYPE = os.environ.get('DOMAIN_DB_TYPE')

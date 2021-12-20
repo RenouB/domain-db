@@ -15,7 +15,8 @@ def get_sqlalchemy_url():
     DOMAIN_DB_PASS = os.environ.get('DOMAIN_DB_PASSWORD')
     DOMAIN_DB_NAME = os.environ.get('DOMAIN_DB_NAME')
     DOMAIN_DB_PORT = os.environ.get('DOMAIN_DB_PORT')
-    sqlalchemy_url = DOMAIN_DB_TYPE+"://"+DOMAIN_DB_USERNAME+":"+DOMAIN_DB_PASS+"@localhost:"+DOMAIN_DB_PORT+"/"+DOMAIN_DB_NAME
+    DOMAIN_DB_HOST = os.environ.get('DOMAIN_DB_HOST')
+    sqlalchemy_url = DOMAIN_DB_TYPE+"://"+DOMAIN_DB_USERNAME+":"+DOMAIN_DB_PASS+"@"+DOMAIN_DB_HOST+":"+DOMAIN_DB_PORT+"/"+DOMAIN_DB_NAME
     return sqlalchemy_url
 
 def get_sqlalchemy_session():
